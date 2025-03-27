@@ -5,8 +5,14 @@ interface Props {
   name: string;
   age: number;
   isMarried: boolean;
+  country: Countries;
 }
-
+export enum Countries {
+  Brazil = "Brazil",
+  France = "France",
+  India = "India",
+  UnitedState = "United State",
+}
 export const Person = (props: Props) => {
   const [isShowInfo, setIsShowInfo] = useState<boolean | null>(false);
   const [personBio, setPersonBio] = useState<string | null>(null);
@@ -28,6 +34,7 @@ export const Person = (props: Props) => {
           <div>{props.name}</div>
           <div>{props.age}</div>
           <div>{props.isMarried ? "is married" : "is not"}</div>
+          <div>Country of Origin: {props.country}</div>
         </>
       )}
       <button onClick={handleClick}>Show info</button>
